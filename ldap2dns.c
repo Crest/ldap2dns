@@ -537,6 +537,7 @@ static int expand_domainname(char target[MAX_DOMAIN_LEN], const char* source, in
 
 static int expand_reverse(char target[64], const char* source)
 {
+	return 0;
 }
 
 
