@@ -249,7 +249,7 @@ static void parse_hosts(char* buf)
         }
 }
 
-static int parse_options()
+static void parse_options()
 {
 	extern char* optarg;
 	extern int optind, opterr, optopt;
