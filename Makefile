@@ -1,14 +1,15 @@
 # $Id$ 
 VERSION=0.5.0
 RELEASE?=0
-CC=gcc
+CC=clang
 DEBUG_CFLAGS?=-g -ggdb
-CFLAGS?=-O2
-LIBS?=-lldap -llber
-LD=gcc 
-LDFLAGS?=
-INSTALL_PREFIX?=
 PREFIXDIR?=/usr/local
+CFLAGS+=-I$(PREFIXDIR)/include
+CFLAGS+=-O2
+LIBS?=-lldap -llber
+LD=clang
+LDFLAGS+=-L$(PREFIXDIR)/lib
+INSTALL_PREFIX?=
 LDAPCONFDIR?=/etc/openldap
 MANDIR?=$(PREFIXDIR)/man
 SPECFILE?=ldap2dns.spec
