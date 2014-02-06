@@ -286,7 +286,7 @@ static void parse_options()
 	strcpy(options.exec_command, "");
 
 	/* Attempt to parse the ldap.conf for system-wide valuse */
-	if (ldap_conf = fopen(LDAP_CONF, "r")) {
+	if ((ldap_conf = fopen(LDAP_CONF, "r"))) {
 		while(fgets(buf, 256, ldap_conf)!=0) {
 			int i;
 			if (sscanf(buf, "BASE %128s", value)==1){
@@ -656,7 +656,7 @@ static void write_rr(struct resourcerecord* rr, int ipdx, int znix)
 		if (tinyfile) {
 			fprintf(tinyfile, ":%s:33:\\%03o\\%03o\\%03o\\%03o\\%03o\\%03o", rr->dnsdomainname, rr->srvpriority >> 8, rr->srvpriority & 0xff, rr->srvweight >> 8, rr->srvweight & 0xff, rr->srvport >> 8, rr->srvport & 0xff);
 			tmp = strdup(rr->cname);
-			while (p = strchr(tmp, '.')) {
+			while ((p = strchr(tmp, '.'))) {
 				*p = '\0';
 				p++;
 				fprintf(tinyfile, "\\%03o%s", (unsigned int)strlen(tmp), tmp);
