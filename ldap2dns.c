@@ -33,6 +33,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
 
 #define UPDATE_INTERVAL 59
 #define LDAP_CONF "/etc/ldap.conf"
